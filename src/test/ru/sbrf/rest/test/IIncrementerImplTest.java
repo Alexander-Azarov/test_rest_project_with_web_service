@@ -15,6 +15,9 @@ class IIncrementerImplTest {
 
     private IIncrementer incrementer;
 
+    /*
+    Инициализация счетчика перед запуском каждого теста
+     */
     @BeforeEach
     void initIncrementer() {
         IIncrementerHolder holder = IIncrementerHolder.getInstance();
@@ -38,7 +41,7 @@ class IIncrementerImplTest {
     @Test
     /*
       Тест на проверку метода incrementNumber()
-      Т.к. метод НИЧЕГО не возвращает, то просто проверим что нет выбрасываемых исключений!
+      Т.к. метод НИЧЕГО не возвращает, то просто проверим, что нет выбрасываемых исключений!
      */
     void incrementNumberTest() {
         assertDoesNotThrow(() -> incrementer.incrementNumber());
@@ -82,18 +85,18 @@ class IIncrementerImplTest {
     @Test
     /*
       Проверка поведения методов setMaximumValue, setMaximumValue и getNumber при последовательных вызовах
-      Сначала происходит инициализация счетчика максимальным значением 10, в циклке происходит увеличение значений
+      Сначала происходит инициализация счетчика максимальным значением 10, в цикле происходит увеличение значений
       счетчика с проверками.
      */
     void setMaximumValueAndIncrementTest() {
 
         int maximumCounterValue = 10;
         /*
-          Инициализация максимального значения счетчика
-         */
+            Инициализация максимального значения счетчика
+        */
         assertDoesNotThrow(() -> incrementer.setMaximumValue(maximumCounterValue));
         /*
-          Последовательные вызова
+          Последовательные вызовы
          */
         for (int i = 0; i < maximumCounterValue; i++) {
             assertDoesNotThrow(() -> incrementer.incrementNumber());

@@ -25,7 +25,6 @@ public class IncrementerService {
         return "Number value is: " + holder.getIncrementer().getNumber();
     }
 
-
     /*
     Метод увеличения значения счетчика будет вызван при получении запроса вида
     /incrementerservice/incrementNumber
